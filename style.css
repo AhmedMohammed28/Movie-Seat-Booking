@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #242333;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.showcase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+/* Center the container in the middle of the page */
+.container {
+  margin: auto;
+  max-width: fit-content;
+  perspective: 1000px;
+
+}
+/* Styling the select tag */
+select {
+  appearance: none;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+  font-size: 15px;
+  margin-bottom: 36px;
+}
+select option {
+  background-color: white;
+}
+
+.selection-instruction {
+  background-color: #201f2e;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 7px;
+  margin-bottom: 36px;
+}
+.inst-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inst-content span {
+  color: #777;
+  margin-left: 2px;
+  font-size: 15px;
+}
+
+
+/* Styling different types of seats */
+.seat {
+  background-color: #444451;
+  width: 15px;
+  height: 12px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin: 5px;
+}
+.seat:hover:not(.occupied, .inst-content .seat) {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.selected {
+  background-color: #6feaf6;
+}
+.occupied {
+  background-color: white;
+}
+
+/* Styling the white screen */
+.screen {
+  background-color: #fff;
+    height: 70px;
+    width: 100%;
+    margin: 15px 0;
+    transform: rotateX(-45deg);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Styling grid seats */
+.seats {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  margin-bottom: 30px;
+}
+.seats .flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price {
+  text-align: center;
+}
+.price span {
+  color: #6feaf6;
+}
