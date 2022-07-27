@@ -1,15 +1,19 @@
 // Load ui stored in local storage
 let l = JSON.parse(localStorage.getItem("Movie")); // get the classes of the seats divs
 let seats = document.querySelectorAll(".seat"); // select the seats from the DOM
-seats.forEach((seat, index) => {
-    seats[index].className = l[index]; // Assign the className from the local Storage to the DOM
-});
-let movie = document.querySelector("#movie").value; // Get the value of the selected movie
-let selectedSeats = document.querySelectorAll(".selected"); //selected seats
-let seatsNumber = document.querySelector(".seat-number");
-seatsNumber.textContent = `${selectedSeats.length - 1}`; // number of selected seats (subtract the seat in the instructions)
-let seatsPrice = document.querySelector(".seat-price");
-seatsPrice.textContent = `${Number(selectedSeats.length - 1) * Number(movie)}`;
+if (l !== null) {
+    seats.forEach((seat, index) => {
+        seats[index].className = l[index]; // Assign the className from the local Storage to the DOM
+    });
+    let movie = document.querySelector("#movie").value; // Get the value of the selected movie
+    let selectedSeats = document.querySelectorAll(".selected"); //selected seats
+    let seatsNumber = document.querySelector(".seat-number");
+    seatsNumber.textContent = `${selectedSeats.length - 1}`; // number of selected seats (subtract the seat in the instructions)
+    let seatsPrice = document.querySelector(".seat-price");
+    seatsPrice.textContent = `${
+        Number(selectedSeats.length - 1) * Number(movie)
+    }`;
+}
 
 // Add event lestener to all seats
 seats.forEach((seat, index) => {
@@ -77,9 +81,6 @@ function bookSeat(e) {
         seats.forEach((seat) => {
             arr.push(seat.className);
         });
-        console.log(arr);
-
         localStorage.setItem("Movie", JSON.stringify(arr));
-        console.log(JSON.parse(localStorage.getItem("Movie")));
     }
 }
