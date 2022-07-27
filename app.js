@@ -5,6 +5,7 @@ if (l !== null) {
     seats.forEach((seat, index) => {
         seats[index].className = l[index]; // Assign the className from the local Storage to the DOM
     });
+    document.getElementById("movie").value = JSON.parse(localStorage.getItem("name"));
     let movie = JSON.parse(localStorage.getItem("name")); // Get the value of the selected movie
     let selectedSeats = document.querySelectorAll(".selected"); //selected seats
     let seatsNumber = document.querySelector(".seat-number");
