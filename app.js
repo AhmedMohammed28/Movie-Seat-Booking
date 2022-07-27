@@ -5,7 +5,7 @@ if (l !== null) {
     seats.forEach((seat, index) => {
         seats[index].className = l[index]; // Assign the className from the local Storage to the DOM
     });
-    let movie = document.querySelector("#movie").value; // Get the value of the selected movie
+    let movie = JSON.parse(localStorage.getItem("name")); // Get the value of the selected movie
     let selectedSeats = document.querySelectorAll(".selected"); //selected seats
     let seatsNumber = document.querySelector(".seat-number");
     seatsNumber.textContent = `${selectedSeats.length - 1}`; // number of selected seats (subtract the seat in the instructions)
@@ -33,6 +33,8 @@ function changeMovie() {
     seatsPrice.textContent = `${
         Number(selectedSeats.length - 1) * Number(movie)
     }`;
+    // Adding the movie to th local storage
+    localStorage.setItem("name", JSON.stringify(movie));
 
     // save the selected seats to local storage
     seats = document.querySelectorAll(".seat");
@@ -55,6 +57,8 @@ function bookSeat(e) {
         seatsPrice.textContent = `${
             Number(selectedSeats.length - 1) * Number(movie)
         }`;
+        // Adding the movie to th local storage
+        localStorage.setItem("name", JSON.stringify(movie));
 
         // save the selected seats to local storage
         seats = document.querySelectorAll(".seat");
@@ -74,6 +78,8 @@ function bookSeat(e) {
         seatsPrice.textContent = `${
             Number(selectedSeats.length - 1) * Number(movie)
         }`;
+        // Adding the movie to th local storage
+        localStorage.setItem("name", JSON.stringify(movie));
 
         // save the selected seats to local storage
         seats = document.querySelectorAll(".seat");
